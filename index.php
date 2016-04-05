@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>GoodReads API Test</title>
+	<title>GoodReads API Test1</title>
 	<link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
 <body>

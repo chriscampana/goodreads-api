@@ -8,10 +8,10 @@
 
 <h2>Currently Reading:</h2>
 
-<button type="button" onclick="loadDoc()">Get my currently </button>
-<p id="demo1"></p>
-<p id="demo"></p>
-<p id="demo2"></p>
+<button type="button" onclick="loadDoc()">Get My Shelves</button>
+<p id="true_or_false_p"></p>
+<p id="status_txt_p"></p>
+<p id="php_response_p"></p>
  
  
 <script>
@@ -20,23 +20,17 @@ function loadDoc() {
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
   if (xhttp.readyState == 4 && xhttp.status == 200) {
-	  document.getElementById("demo1").innerHTML = "TrUe";
-    xmlDoc = xhttp.responseText;
-/*
-    x = xmlDoc.getElementsByTagName("title");
-    for (i = 0; i < x.length; i++) {
-      txt = txt + x[i].childNodes[0].nodeValue + "<br>";
-    }
-*/
+	document.getElementById("true_or_false_p").innerHTML = "True";
+    php_response = xhttp.responseText;
 	txt = xhttp.statusText;
-    document.getElementById("demo").innerHTML = txt;
-    txt2 = xmlDoc;
-    document.getElementById("demo2").innerHTML = txt2;
+    document.getElementById("status_txt_p").innerHTML = txt;
+    txt2 = php_response;
+	document.getElementById("php_response_p").innerHTML = txt2;
     }
   else {
-	  document.getElementById("demo1").innerHTML = "FalSE";
+	document.getElementById("true_or_false_p").innerHTML = "False";
 	txt = xhttp.status;
-    document.getElementById("demo").innerHTML = txt;  
+    document.getElementById("status_txt_p").innerHTML = txt;  
   }
   };
   xhttp.open("GET", "functions.php", true);

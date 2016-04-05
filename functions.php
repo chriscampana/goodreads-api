@@ -1,17 +1,17 @@
 <?php
-function apiTest() {
-    //$response = file_get_contents('https://www.goodreads.com/review/list?v=2&key=HcuvAy1HVWamfQboaYl9g&id=39127415&shelf=currently-reading');
-    //$xml=simplexml_load_string($response) or die("Error: Cannot create object");
-	$xml=simplexml_load_file('test.xml') or die("Error: Cannot create object");
-    $reviews = $xml->reviews[0]->review;
+function get_shelves_and_move_on() {
+    $response = file_get_contents('https://www.goodreads.com/shelf/list?v=2&key=HcuvAy1HVWamfQboaYl9g&user_id=39127415');
+    $xml=simplexml_load_string($response) or die("Error: Cannot create object");
+	//$xml=simplexml_load_file('test.xml') or die("Error: Cannot create object");
+    $shelf = $xml->shelves[0]->user_shelf;
 	//echo $reviews;
 
 
-	echo "<form action=\"hey\">";
+	echo "<form action=\"results.php\">";
 	echo "<select name=\"shelves\">";
-    foreach($reviews as $reviewlist):
-    	//echo "<li>".$reviewlist->book[0]->authors[0]->author[0]->name."</li>";
-		echo "<option value=\"volvo\">" . $reviewlist->book[0]->authors[0]->author[0]->name ."</option>";
+    foreach($shelf as $shelflist):
+    	//echo "HI:".$reviewlist->book[0]->authors[0]->author[0]->name;
+		echo "<option value=\"".$shelflist->name."\">" . $shelflist->name ."</option>";
 		
     endforeach;
 	echo "</form>";
@@ -27,7 +27,7 @@ function apiTest() {
 
 }
 
-apiTest();
+get_shelves_and_move_on();
 ?>
 
 

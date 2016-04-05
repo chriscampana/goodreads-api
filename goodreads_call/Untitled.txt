@@ -1,0 +1,12 @@
+Get books from currently reading shelf
+$response = file_get_contents('https://www.goodreads.com/review/list?v=2&key=HcuvAy1HVWamfQboaYl9g&id=39127415&shelf=currently-reading');
+curl "https://www.goodreads.com/review/list?v=2&key=HcuvAy1HVWamfQboaYl9g&id=39127415&shelf=currently-reading"
+
+Get all books from "read" shelf sort by date read desc
+$response = file_get_contents('https://www.goodreads.com/review/list?v=2&key=HcuvAy1HVWamfQboaYl9g&id=39127415&shelf=read&per_page=200&sort=date_read');
+
+
+
+Get all shelves
+$response = file_get_contents('https://www.goodreads.com/shelf/list?v=2&key=HcuvAy1HVWamfQboaYl9g&user_id=39127415');
+curl "https://www.goodreads.com/shelf/list?v=2&key=HcuvAy1HVWamfQboaYl9g&user_id=39127415"
